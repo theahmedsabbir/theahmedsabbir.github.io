@@ -2883,23 +2883,23 @@ blockquote p {
 
 
 /* ------------------------------
-		4. Home Section
+        4. Home Section
 ------------------------------ */
 
 .pt-home {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-position: center center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
 }
 
 .pt-home:before {
-	content: '';
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -2910,117 +2910,117 @@ blockquote p {
 }
 
 .pt-home .banner {
-	position: absolute;
-	width: 100%;
-	top: 50%;
-	color: #fff;
-	/* left: 10% !important; */
-	text-align: center;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    color: #fff;
+    /* left: 10% !important; */
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .pt-home .banner h1 {
-	color: #fff;
-	margin-bottom: 15px;
-	font-size: 70px;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 70px;
 }
 
 .pt-home .banner p {
-	color: #fff;
-	font-size: 30px;
+    color: #fff;
+    font-size: 30px;
 }
 
 /* Social */
 .pt-home .social {
-	position: absolute;
-	width: 40px;
-	height: 120px;
-	top: 20px;
-	z-index: 1;
+    position: absolute;
+    width: 40px;
+    height: 120px;
+    top: 20px;
+    z-index: 1;
 }
 
 .pt-home .social ul li {
-	display: inline-block;
+    display: inline-block;
 }
 
 .pt-home .social ul li i {
-	color: #fff;
-	width: 40px;
-	height: 40px;
-	font-size: 16px;
-	line-height: 40px;
-	text-align: center;
-	-webkit-transition: all .5s ease;
-			transition: all .5s ease;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    -webkit-transition: all .5s ease;
+            transition: all .5s ease;
 }
 
 .pt-home .social ul li i:hover {
-	color: #fff;
-	-webkit-transform: scale(1.3);
-			transform: scale(1.3);
+    color: #fff;
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
 }
 
 /* Language */
 .pt-home .lang {
-	position: absolute;
+    position: absolute;
     bottom: 30px;
     z-index: 1;
 }
 
 .pt-home .lang ul {
-	margin: 0;
+    margin: 0;
 }
 
 .pt-home .lang ul li {
-	display: inline-block;
-	margin: 0 10px;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 .pt-home .lang ul li a {
-	color: #a0a0a0;
-	font-size: 11px;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	-webkit-transition: all .5s ease;
-			transition: all .5s ease;
+    color: #a0a0a0;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    -webkit-transition: all .5s ease;
+            transition: all .5s ease;
 }
 
 .pt-home .lang ul li a:hover {
-	color: #fff;
+    color: #fff;
 }
 
 .pt-home .lang ul li a.active {
-	color: #fff;
-	border-bottom: 1px solid #fff;
+    color: #fff;
+    border-bottom: 1px solid #fff;
 }
 
 
 .pt-home .social {
-	/* right: 20px !important; */
-	right: 5%;
+    /* right: 20px !important; */
+    right: 5%;
 }
 
 
 /* Music Bg */
 .music-bg {
-	display: block;
-	cursor: pointer;
-	padding: 70px 0;
-	padding-bottom: 0;
-	text-align: center;
-	border-color: #0e0f10;
-	/* border-top: 5px solid #0e0f10; */
-	visibility: visible;
-	z-index: 10;
-	-webkit-transition: all .3s ease;
-	transition: all 0.3s ease;
+    display: block;
+    cursor: pointer;
+    padding: 101px 0;
+    padding-bottom: 0;
+    text-align: center;
+    border-color: #0e0f10;
+    /* border-top: 5px solid #0e0f10; */
+    visibility: visible;
+    z-index: 10;
+    -webkit-transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .music-bg p {
-	margin: 0;
-	font-size: 13px;
-	font-weight: 600;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .music-bg .lines {
@@ -3046,32 +3046,32 @@ blockquote p {
 
 .audio-on .music_lines span:nth-child(1) {
     -webkit-animation: musicline 2s 0.5s ease-out alternate infinite;
-    		animation: musicline 2s 0.5s ease-out alternate infinite;
+            animation: musicline 2s 0.5s ease-out alternate infinite;
 }
 
 .audio-on .music_lines span:nth-child(2) {
     -webkit-animation: musicline 2s 1s ease-out alternate infinite;
-    		animation: musicline 2s 1s ease-out alternate infinite;
+            animation: musicline 2s 1s ease-out alternate infinite;
 }
 
 .audio-on .music_lines span:nth-child(3) {
     -webkit-animation: musicline 2s 1.5s ease-out alternate infinite;
-    		animation: musicline 2s 1.5s ease-out alternate infinite;
+            animation: musicline 2s 1.5s ease-out alternate infinite;
 }
 
 .audio-on .music_lines span:nth-child(4) {
     -webkit-animation: musicline 2s 0.25s ease-out alternate infinite;
-    		animation: musicline 2s 0.25s ease-out alternate infinite;
+            animation: musicline 2s 0.25s ease-out alternate infinite;
 }
 
 .audio-on .music_lines span:nth-child(5) {
     -webkit-animation: musicline 2s 0.75s ease-out alternate infinite;
-    		animation: musicline 2s 0.75s ease-out alternate infinite;
+            animation: musicline 2s 0.75s ease-out alternate infinite;
 }
 
 .audio-on .music_lines span:nth-child(6) {
     -webkit-animation: musicline 2s 1.25s ease-out alternate infinite;
-    		animation: musicline 2s 1.25s ease-out alternate infinite;
+            animation: musicline 2s 1.25s ease-out alternate infinite;
 }
 
 
