@@ -21,6 +21,7 @@
   padding: 0;
   width: 90%;
   max-width: 1200px;
+  /* height: auto !important; */
 }
 
 /* The Close Button */
@@ -96,6 +97,7 @@ img {
   background-color: black;
   padding: 2px 16px;
   color: white;
+  display: none;
 }
 
 .demo {
