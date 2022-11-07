@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Zainik Lab</title>
+
+    <style>
+    	.parent {
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		    height: 100vh;
+		}
+
+		.form {
+		    width: 100%;
+		    text-align: center;
+		}
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-6 ml-auto mr-auto parent">
+			    <div class="form">
+					<div class="row">
+					  <div class="col-4">
+					    <div class="list-group" id="list-tab" role="tablist">
+					      <a class="list-group-item list-group-item-action " id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Problem #1</a>
+					      <a class="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Problem #2</a>
+					      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Problem #3</a>
+					    </div>
+					  </div>
+					  <div class="col-8">
+					    <div class="tab-content" id="nav-tabContent">
+					      <div class="tab-pane fade" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+					    	<div class="form-group">
+					    		<label>Please enter a text to check it's last word's length</label>
+					    		<input type="text" class="form-control" id="string">
+					    	</div>
+					    	<div class="form-group">			    		
+					    		<button class="btn btn-success" onclick="submit1()">Submit</button>
+					    		<p class="alert alert-success mt-4" id="output" style="display: none;"></p>
+					    	</div>					      	
+					      </div>
+					      <div class="tab-pane fade  show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">					      	
+					    	<div class="form-group">
+					    		<label>Please enter a digit</label>
+					    		<input type="text" class="form-control" id="string2" 
+					    			onkeypress="
+					    				if (event.which == 13) {
+					    					submit2(Number.parseInt(this.value))
+					    				}
+					    			">
+					    	</div>
+					    	<div class="form-group">			    		
+					    		<button class="btn btn-success" onclick="submit2()">Submit</button>
+					    		<p class="alert alert-success mt-4" id="output2" style="display: none;"></p>
+					    	</div>		
+					      </div>
+					      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">				      	
+					    	<div class="form-group">
+					    		<label>Please insert x1 v1 x2 v2 respectively</label>
+					    		<input type="text" class="form-control" id="string3" 
+					    			onkeypress="
+					    				if (event.which == 13) {
+					    					submit3(this.value)
+					    				}
+					    			">
+					    	</div>
+					    	<div class="form-group">			    		
+					    		<button class="btn btn-success" onclick="submit3()">Submit</button>
+					    		<p class="alert alert-success mt-4" id="output3" style="display: none;"></p>
+					    	</div>					      	
+					      </div>
+					      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+					    </div>
+					  </div>
+					</div>
+			    </div>
+    		</div>
+    	</div>
+    </div>
+
+
+
+
+    <!-- problem 3 -->
+    <script>
+    	let submit3 = (event) => {
+    		document.querySelector('#output3').style.display = `none`;
+    		let string3 = document.querySelector('#string3').value;
+    		let output3;
+    		output3 = willKangarooMeet(string3)
+    		if(output3 != true){
+	    		document.querySelector('#output3').innerHTML = `Yes, the kangaroos will meet.`;
+    		}else{		
+    			document.querySelector('#output3').innerHTML = `No, the kangaroos will not meet`;
+    		}
+    		document.querySelector('#output3').style.display = `block`;  
+    	}
+
+    	let willKangarooMeet = (inputs) =>{
+    		console.log(inputs);
+    		inputs = inputs.trim().split(' ')
+
+    		let x1 = Number.parseInt(inputs[0]);
+    		let v1 = Number.parseInt(inputs[1]);
+    		let x2 = Number.parseInt(inputs[2]);
+    		let v2 = Number.parseInt(inputs[3]);
+
+    		// validation
+    		if(inputs.length != 4){
+    			console.log('invalid input')
+    			return false;
+    		}
+    		if(isNaN(x1) || isNaN(x2) || isNaN(v1) || isNaN(v2)){
+    			console.log('invalid input')
+    			return false;
+    		}
+
+    		// constraints
+    		if(x1<0 || x2<0 || x1>x2 || x1 > 10000 || x2 > 10000){
+    			console.log('invalid input')
+    			return false;
+    		}
+    		if(v1<=0 || v2<=0 || v1>10000 || v2>10000){
+    			console.log('invalid input')
+    			return false;
+    		}
+
+
+
+    		let hasTheyMeet = false;
+    		let distances = [];
+    		let current_distance;
+    		for (var jump = 1;; jump++) {
+
+
+    			// for every jump count their distance
+    			current_distance = x2 - x1;
+    			distances.push(current_distance);
+
+
+	    		// if both destination value is same return true
+	    		// else false
+    			if(current_distance == 0){
+    				console.log('Yes');
+    				return true;
+    			}else if(jump >= 3){
+
+    				// if the distances doesnt decrease then stop 
+    				if(distances[1] >= distances[0] && distances[2] >= distances[1]){  
+	    				console.log('No');
+	    				return false;
+    				}
+    			}
+
+    			// if distance decreases but doesnt meet, rather leaves other behind 
+    			if(current_distance < 0){					
+    				console.log('No');
+    				return false;    				
+    			}
+
+
+    			// console.log(current_distance)
+    			x1 += v1;
+    			x2 += v2;
+    		}
+    	}
+
+    	// willKangarooMeet('0 3 4 2');
+    	// willKangarooMeet('1 2 2 1');
+    	// willKangarooMeet('0 2 5 3');
+    	// willKangarooMeet('2 4 5 1');
+    </script>
+
+
+    <!-- problem 2 -->
+    <script>
+    	let submit2 = (event) => {
+    		document.querySelector('#output2').style.display = `none`;
+    		let string2 = document.querySelector('#string2').value;
+    		let roman = convertToRoman(Number.parseInt(string2))
+    		if(roman != false){
+	    		document.querySelector('#output2').innerHTML = `Roman digit of ${string2} is ${roman}.`;
+    		}else{		
+    			document.querySelector('#output2').innerHTML = `please insert a number between 1 and 3999.`;
+    		}
+    		document.querySelector('#output2').style.display = `block`;  
+    	}
+    	function romanOf(value) {
+			let numbers = {
+				'I': 1,
+				'V': 5,
+				'X': 10,
+				'L': 50,
+				'C': 100,
+				'D': 500,
+				'M': 1000,
+			}
+		  	return Object.keys(numbers).find(key => numbers[key] === value);
+		}
+
+    	let convertToRoman = (n) =>{
+    		n = Number.parseInt(n);
+
+    		// constraint
+    		if(n<0 || n>3999){
+    			console.log('please insert a number between 1 and 3999');
+    			return false;
+    		}
+
+    		let roman = '';
+
+    		while(n>0){  
+
+	    		if(n>=1000){
+	    			n -= 1000;
+	    			roman += romanOf(1000);	 
+	    		}else if(n>=500){
+	    			if (n>=900) {	    				
+		    			n -= 900;
+		    			roman += 'CM';	
+	    			}else{	
+		    			n -= 500;
+		    			roman += romanOf(500); 
+	    			}	 
+	    		}else if(n>=100){
+	    			if (n>=400) {	    				
+		    			n -= 400;
+		    			roman += 'CD';	
+	    			}else{	
+		    			n -= 100;
+		    			roman += romanOf(100);	 
+	    			}
+	    		}else if(n>=50){
+	    			if (n>=90) {	    				
+		    			n -= 90;
+		    			roman += 'XC';	
+	    			}else{	    				
+		    			n -= 50;
+		    			roman += romanOf(50);	
+	    			}
+	    		}else if(n>=10){	    			
+	    			if (n>=40) {	    				
+		    			n -= 40;
+		    			roman += 'XL';	
+	    			}else{
+		    			n -= 10;
+		    			roman += romanOf(10);	
+	    			}
+	    		}else if(n>=5){
+	    			if(n == 9){  				
+		    			n -= 9;
+		    			roman += 'IX';		 
+	    			}else{	    				
+		    			n -= 5;
+		    			roman += romanOf(5);		 
+	    			}
+	    		}else{
+	    			if(n == 4){	 
+	    				n -= 4;   				
+		    			roman += 'IV';		 
+	    			}else{	    				
+	    				n -= 1;   				
+		    			roman += 'I';		 
+	    			}
+	    		}
+    		}
+    		return roman;
+    	}
+    </script>
+
+    <!-- problem 1 -->
+    <script>
+    	let submit1 = () => {
+    		document.querySelector('#output').style.display = `none`;
+    		let string = document.querySelector('#string').value;
+    		let length = find_last_word_length(string);
+    		document.querySelector('#output').innerHTML = `The last word's length is ${length}.`;
+    		document.querySelector('#output').style.display = `block`;
+    	}
+    	let find_last_word_length = (s) => { 
+
+    		// apply the constraints
+    		if (s.length < 1) {
+    			console.log('String cannot be empty');
+    			return false;
+    		}else if(s.length > 104){
+    			console.log('String cannot be over than 104 character');
+    			return false;
+    		}
+
+    		// find the last word
+    		let words = s.trim().split(/\s+/);
+    		let last_word = words[words.length-1];
+    		console.log(last_word);
+
+    		// return it's length
+    		return last_word.length;
+    	}
+    </script>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
