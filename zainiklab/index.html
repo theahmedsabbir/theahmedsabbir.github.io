@@ -297,16 +297,27 @@
             let length = find_last_word_length(string);
             document.querySelector('#output').innerHTML = `The last word's length is ${length}.`;
             document.querySelector('#output').style.display = `block`;
+            if(length == false){      
+                document.querySelector('#output').innerHTML = ``;
+                document.querySelector('#output').style.display = `block`; 
+            }else if(length == -1){
+                document.querySelector('#output').innerHTML = `Invalid input`;
+                document.querySelector('#output').style.display = `block`;                  
+            }else{
+                
+                document.querySelector('#output').innerHTML = `The last word's length is ${length}.`;
+                document.querySelector('#output').style.display = `block`;  
+            }  
         }
         let find_last_word_length = (s) => { 
 
             // apply the constraints
             if (s.length < 1) {
                 console.log('String cannot be empty');
-                return false;
+                return -1;
             }else if(s.length > 104){
                 console.log('String cannot be over than 104 character');
-                return false;
+                return -1;
             }
 
             // find the last word
