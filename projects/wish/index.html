@@ -1,0 +1,206 @@
+<style>
+  
+</style>
+
+
+
+<link rel="stylesheet" href="css/ajax_css.css" type="text/css" />
+
+<div id="ajax-page" class="ajax-page-content">
+  <div class="ajax-page-wrapper">
+    <div class="ajax-page-nav">
+      <div class="nav-item ajax-page-prev-next">
+        <a class="ajax-page-load" href="https://lmpixels.com/404.shtml">
+          <i class="lnr lnr-chevron-left"></i>
+        </a>
+        <a class="ajax-page-load" href="https://lmpixels.com/404.shtml">
+          <i class="lnr lnr-chevron-right"></i>
+        </a>
+      </div>
+      <div class="nav-item ajax-page-close-button">
+        <a id="ajax-page-close-button" href="#">
+          <i class="lnr lnr-cross"></i>
+        </a>
+      </div>
+    </div>
+    <div class="ajax-page-title">
+      <h1>WISH - Software Agency Landing Page</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-7 col-md-7 portfolio-block">
+        <div class="owl-carousel portfolio-page-carousel">
+          <div class="item">
+            <img src="projects/wish/1.png" alt="" />
+          </div>
+        </div>
+        <div class="other_pics">
+
+          <div class="item"> 
+            <img src="projects/wish/1.png" id="1" alt=""   onclick="openModal();currentSlide(this)" />
+          </div>
+          <!-- <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97102654?autoplay=0"></iframe> -->
+        </div>
+        <!-- <div class="portfolio-page-image"><img src="images/portfolio/1.jpg" alt=""></div>-->
+      </div>
+      <div class="col-sm-5 col-md-5 portfolio-block">
+        <div class="project-description">
+          <div class="block-title">
+            <h3>Description</h3>
+          </div>
+          <ul class="project-general-info">
+            <li>
+              <p>
+                <i class="fa fa-user"></i> WISH - Software Agency Landing Page
+              </p>
+            </li>
+            <li>
+              <p>
+                <i class="fa fa-globe"></i>
+                <a href="https://www.wish.com.bd/" target="_blank">https://www.wish.com.bd/</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <i class="fa fa-calendar"></i> 2021
+              </p>
+            </li>
+          </ul>
+          <p class="text-justify">Software Agency Landing Page</p>
+<!--           <ul class="bullet_points">
+            <li>A complete management system for uttara university department of cse</li>
+            <li>Admin panel, teacher, student, stuff</li>
+            <li>Teacher onboarding</li>
+            <li>Online classroom, forum, video class</li>
+            <li>Live examination, question make, result submit</li>
+            <li>Course, Result, Routine, bus service, library, notice board</li>
+            <li>Blood donation, complain box</li>
+            <li>Fully designed frontend</li>
+          </ul> -->
+          <div class="tags-block">
+            <div class="block-title">
+              <h3>Technology</h3>
+            </div>
+            <ul class="tags">
+              <li>
+                <a>HTML5</a>
+              </li>
+              <li>
+                <a>CSS3</a>
+              </li>
+              <li>
+                <a>Bootstrap</a>
+              </li>
+              <li>
+                <a>jQuery</a>
+              </li>
+              <li>
+                <a>Ajax</a>
+              </li>
+              <li>
+                <a>PHP</a>
+              </li>
+              <li>
+                <a>MySql</a>
+              </li>
+              <li>
+                <a>Laravel</a>
+              </li>
+            </ul>
+          </div>
+          <div class="btn-group share-buttons">
+            <div class="block-title">
+              <h3>Origin</h3>
+            </div>
+            <div class="flags">
+              <img src="images/flags/bangladesh.png" alt="bangladesh origin" title="Bangladesh">
+              <!-- <img src="images/flags/italy.png" alt="italy origin" title="Italy"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+
+        <div class="mySlides">
+          <div class="numbertext">1 / 4</div>
+          <img src="img_nature_wide.jpg" style="width:100%" id="modal_img">
+        </div>
+        
+        <a class="prev" onclick="">&#10094;</a>
+        <a class="next" onclick="">&#10095;</a>
+
+        <div class="caption-container">
+          <p id="caption"></p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+
+
+    $('.portfolio-page-carousel').owlCarousel({
+      smartSpeed: 1200,
+      items: 1,
+      loop: true,
+      dots: true,
+      nav: true,
+      // navText: false,
+      margin: 10,
+      autoHeight: true,
+      autoPlay: false,
+      navText: [
+        "<i class='lnr lnr-chevron-left'></i>",
+        "<i class='lnr lnr-chevron-right'></i>"
+      ],
+    });
+    // $('.portfolio-page-carousel').trigger('to.owl.carousel', 3)
+  });
+</script>
+
+
+<script>
+let total_pics = $('.other_pics img').length;
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+function plusSlides(n) {
+  let img = document.getElementById(''+n);
+  currentSlide(img)
+}
+
+function currentSlide(current_img) {
+  let current_slide = Number.parseInt(current_img.id);
+  $('#modal_img').attr('src', current_img.src);
+  $('.numbertext').html(current_slide + ' / '+total_pics);
+  if (current_slide + 1 <= total_pics) {
+    $('.next').attr('onclick', 'plusSlides('+ (current_slide + 1) +')')
+    $('.next').show();
+  }else{
+    $('.next').hide();
+  }
+  if (current_slide - 1 >= 1) {
+    $('.prev').attr('onclick', 'plusSlides('+ (current_slide - 1) +')')
+    $('.prev').show();
+  }else{
+    $('.prev').hide();
+  }
+  $('.mySlides').show();
+  console.log(current_slide)
+}
+
+</script>
